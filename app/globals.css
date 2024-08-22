@@ -2,32 +2,178 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+:root {
+  --border: hsl(280 10% 50% / 1);
+  --card: hsl(240, 63%, 6%);
+  --color: hsl(240, 24%, 84%);
+  --border-width: 2px;
+  --border-radius: 12px;
+  --gradient: conic-gradient(from 180deg at 50% 70%, #ffffff 0deg, #b0d0f3 180deg, #ffffff 360deg);
+  --background-dark: #181818;
+  --background-darker: #090909;
+  --background-light: #171717;
+  --color-white: #ffffff;
+  --color-text: #ffffff;
+  --gap-large: 20px;
+  --gap-small: 3vw;
+  --font-size-title: 100px;
+  --subtitle-weight: normal;
+  --subtitle-size: 40px;
+  --banner-height: 10vh;
+  --parrafos-size: 20px;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: sans-serif;
+  background-color: var(--background-dark);
+  color: var(--color-text);
+  text-align: justify;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+h1 { 
+  font-weight: var(--subtitle-weight);
+  font-size: var(--subtitle-size);
+}
+
+p {
+  font-size: var(--parrafos-size);
+  font-weight: var(--subtitle-weight);
+}
+
+input{
+  display: none;
+}
+
+/*PANTALLAS DE CELUS EN SECCION PRODUCTO*/
+
+.card[for="cc1"] {
+  background-image: url('../public/images/ss1.png');
+}
+
+.card[for="cc2"] {
+  background-image: url('../public/images/ss2.png');
+}
+
+.card[for="cc3"] {
+  background-image: url('../public/images/ss3.png');
+}
+
+.card[for="cc4"] {
+  background-image: url('../public/images/ss4.png');
+}
+
+.card[for="cc5"] {
+  background-image: url('../public/images/ss5.png');
+}
+
+.card[for="cc6"] {
+  background-image: url('../public/images/ss6.png');
+}
+
+.card[for="cc7"] {
+  background-image: url('../public/images/ss7.png');
+}
+/*PANTALLAS DE CELUS EN SECCION PRODUCTO*/
+
+/*ANIMACIONES*/
+
+@keyframes moveleftToRight {
+    from { transform: translateX(-600px); }
+    to { transform: translate(0px); }
+  }
+
+.moveleftToRightAnim{
+    animation: moveleftToRight 5s;
+    animation-timeline: scroll(root);
+    animation-range: 0 800px;
+}
+
+@keyframes moveCardutd {
+    from { transform: translateY(-600px); }
+    to { transform: translateY(0px); }
+  }
+
+.moveLogodtu{
+    animation: moveCarddtu 1s ease;
+}
+.moveCardutd{
+  animation: moveCardutd 1s ease;
+}
+
+@keyframes moveBackToFront {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+
+.moveBacktoFrontAnim{
+  animation: moveBackToFront 2s;
+  animation-timeline: scroll(root);
+  animation-range: 0 1500px;
+}
+
+/*ANIMACIONES CARDS SERVICIOS*/
+@keyframes moveCarddtu {
+  from { transform: translateY(600px); }
+  to { transform: translateY(0px); }
+}
+
+@keyframes moveCardutd {
+  from { transform: translateY(-600px); }
+  to { transform: translateY(0px); }
+}
+
+/*ANIMACIONES HEADER*/
+@keyframes enhance-header{
+  to{
+     background: rgba(46, 46, 50, 0.951);
   }
 }
+
+@keyframes enhance-headerLogo{
+  to{
+     opacity: 0%;
+  }
+  to{
+    opacity: 33%;
+ }
+  to{
+    opacity: 66%;
+  }
+  to{
+    opacity: 100%;
+  }
+}
+
+.enhanceHeader{
+  animation: enhance-header linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0 800px;
+}
+
+.enhanceHeaderLogo{
+  animation: enhance-headerLogo linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0 800px;
+}
+
+/*CUSTOMS TEXTS*/
+
+.custom-text-justify {
+    text-align: justify;
+    text-justify: inter-word;
+  }
